@@ -35,7 +35,11 @@ const daynightCurtainPriceCache = ref<Record<string, Record<string, Record<strin
 
 function onDayNightPriceChange(rail: string, method: string, clothType: string, price: number | undefined) {
   const target = get(daynightCurtainPriceCache.value, [rail, method], {} as Record<string, number>);
-  if (price !== undefined && Object.keys(target).length >= 2) return toast.add({ severity: "warn", summary: "已選兩種布料", life: 5000 });
+  if (price !== undefined && !(clothType in target) && Object.keys(target).length >= 2) return toast.add({
+    severity: "warn",
+    summary: "已選兩種布料",
+    life: 5000
+  });
   if (price === undefined) delete target[clothType];
   else set(daynightCurtainPriceCache.value, [rail, method, clothType], price);
 }
