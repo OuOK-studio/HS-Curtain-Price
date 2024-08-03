@@ -14,6 +14,9 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.51.17
         version: 5.51.17(vue@3.4.35(typescript@5.5.4))
+      '@vee-validate/zod':
+        specifier: ^4.13.2
+        version: 4.13.2(vue@3.4.35(typescript@5.5.4))
       '@vueuse/core':
         specifier: ^10.11.0
         version: 10.11.0(vue@3.4.35(typescript@5.5.4))
@@ -23,15 +26,27 @@ importers:
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
+      primeicons:
+        specifier: ^7.0.0
+        version: 7.0.0
       primevue:
         specifier: ^4.0.3
         version: 4.0.3(vue@3.4.35(typescript@5.5.4))
       tailwindcss-primeui:
         specifier: ^0.3.4
         version: 0.3.4(tailwindcss@3.4.7)
+      vee-validate:
+        specifier: ^4.13.2
+        version: 4.13.2(vue@3.4.35(typescript@5.5.4))
       vue:
         specifier: ^3.4.31
         version: 3.4.35(typescript@5.5.4)
+      vue-temp-var:
+        specifier: ^2.0.1
+        version: 2.0.1(vue@3.4.35(typescript@5.5.4))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@primevue/auto-import-resolver':
         specifier: ^4.0.3
@@ -418,6 +433,9 @@ packages:
 
   '@types/web-bluetooth@0.0.20':
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
+
+  '@vee-validate/zod@4.13.2':
+    resolution: {integrity: sha512-y1aqelutD6btX2ayZk3w8udClAykptphlGLwu0vlCqY2r9mrJqMn1EKqtcwXAvEom+ceTcHJOwGr2FUA7i+ZEg==}
 
   '@vitejs/plugin-vue@5.1.2':
     resolution: {integrity: sha512-nY9IwH12qeiJqumTCLJLE7IiNx7HZ39cbHaysEUd+Myvbz9KAqd2yq+U01Kab1R/H1BmiyM2ShTYlNH32Fzo3A==}
@@ -913,6 +931,9 @@ packages:
     resolution: {integrity: sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==}
     engines: {node: ^10 || ^12 || >=14}
 
+  primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
+
   primevue@4.0.3:
     resolution: {integrity: sha512-f/41JMb7pMP++zKuiymXYmDMk/4oFRlJKXQzgrAy5Q3esU29hS59MBaP2CsHdPoJasQSzVAgOT+36S4/WXLajg==}
     engines: {node: '>=12.11.0'}
@@ -1034,6 +1055,10 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
+  type-fest@4.23.0:
+    resolution: {integrity: sha512-ZiBujro2ohr5+Z/hZWHESLz3g08BBdrdLMieYFULJO+tWc437sn8kQsWLJoZErY8alNhxre9K4p3GURAG11n+w==}
+    engines: {node: '>=16'}
+
   typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
     engines: {node: '>=14.17'}
@@ -1083,6 +1108,11 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  vee-validate@4.13.2:
+    resolution: {integrity: sha512-HlpR/6MJ92TW9f135umMZKUqdd/tFQTxLNSf2ImbU4Y/MlLVAUpF1l64VdjTOhbClAqPjCb5p/SqHDxLpUHXrw==}
+    peerDependencies:
+      vue: ^3.4.26
+
   vite@5.3.5:
     resolution: {integrity: sha512-MdjglKR6AQXQb9JGiS7Rc2wC6uMjcm7Go/NHNO63EwiJXfuk9PgqiP/n5IDJCziMkfw9n4Ubp7lttNwz+8ZVKA==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -1125,6 +1155,11 @@ packages:
       '@vue/composition-api':
         optional: true
 
+  vue-temp-var@2.0.1:
+    resolution: {integrity: sha512-aiM3ki7L+dbLfcfX4BMs/c6icTHiHIfuurpcKqSmyx1GOUSaEQ9+PPENbnM8LauygOfi+TXsVqQyd+HoAQD7Rg==}
+    peerDependencies:
+      vue: '>=3.3.0'
+
   vue-tsc@2.0.29:
     resolution: {integrity: sha512-MHhsfyxO3mYShZCGYNziSbc63x7cQ5g9kvijV7dRe1TTXBRLxXyL0FnXWpUF1xII2mJ86mwYpYsUmMwkmerq7Q==}
     hasBin: true
@@ -1163,6 +1198,9 @@ packages:
     resolution: {integrity: sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==}
     engines: {node: '>= 14'}
     hasBin: true
+
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
 snapshots:
 
@@ -1402,6 +1440,14 @@ snapshots:
   '@types/lodash@4.17.7': {}
 
   '@types/web-bluetooth@0.0.20': {}
+
+  '@vee-validate/zod@4.13.2(vue@3.4.35(typescript@5.5.4))':
+    dependencies:
+      type-fest: 4.23.0
+      vee-validate: 4.13.2(vue@3.4.35(typescript@5.5.4))
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - vue
 
   '@vitejs/plugin-vue@5.1.2(vite@5.3.5(sass@1.77.8))(vue@3.4.35(typescript@5.5.4))':
     dependencies:
@@ -1897,6 +1943,8 @@ snapshots:
       picocolors: 1.0.1
       source-map-js: 1.2.0
 
+  primeicons@7.0.0: {}
+
   primevue@4.0.3(vue@3.4.35(typescript@5.5.4)):
     dependencies:
       '@primeuix/styled': 0.0.5
@@ -2057,6 +2105,8 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
+  type-fest@4.23.0: {}
+
   typescript@5.5.4: {}
 
   ufo@1.5.4: {}
@@ -2128,6 +2178,12 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
+  vee-validate@4.13.2(vue@3.4.35(typescript@5.5.4)):
+    dependencies:
+      '@vue/devtools-api': 6.6.3
+      type-fest: 4.23.0
+      vue: 3.4.35(typescript@5.5.4)
+
   vite@5.3.5(sass@1.77.8):
     dependencies:
       esbuild: 0.21.5
@@ -2140,6 +2196,10 @@ snapshots:
   vscode-uri@3.0.8: {}
 
   vue-demi@0.14.10(vue@3.4.35(typescript@5.5.4)):
+    dependencies:
+      vue: 3.4.35(typescript@5.5.4)
+
+  vue-temp-var@2.0.1(vue@3.4.35(typescript@5.5.4)):
     dependencies:
       vue: 3.4.35(typescript@5.5.4)
 
@@ -2181,3 +2241,5 @@ snapshots:
       strip-ansi: 7.1.0
 
   yaml@2.5.0: {}
+
+  zod@3.23.8: {}

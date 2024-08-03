@@ -6,12 +6,17 @@ import axios from "axios";
 
 
 async function fetchPriceFromApi(params: SearchPriceParams) {
-    const response = await axios.get<ApiResponse<PriceData>>("https://script.google.com/macros/s/AKfycbx5D5ac79GlNQIESZ9ogcZQVBzcGNOWMF8A3DmooVHEmlvRJqj3sJAqt-G8SECd0IDY/exec", { params })
+    const response = await axios.get<ApiResponse<PriceData>>("https://script.google.com/macros/s/AKfycbx5D5ac79GlNQIESZ9ogcZQVBzcGNOWMF8A3DmooVHEmlvRJqj3sJAqt-G8SECd0IDY/exec", {
+        params: {
+            ...params,
+            action: "search"
+        }
+    });
     const data = response.data;
     if (data.success) return data.data;
     throw Error(data.error)
 }
-//
+
 // async function fetchPriceFromMemory(params: SearchPriceParams) {
 //     return data.data as PriceData;
 // }
@@ -22,6 +27,7 @@ export function usePrice(params: Ref<SearchPriceParams>) {
     const { data: priceData, isFetching } = useQuery({
         queryKey: ["price", params],
         queryFn: () => fetchPriceFromApi(params.value),
+        // queryFn: () => fetchPriceFromMemory(params.value),
         enabled,
         staleTime: 60000,
         retry: 1,

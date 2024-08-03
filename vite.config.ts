@@ -10,7 +10,7 @@ export default defineConfig({
         vue(),
         AutoImport({
             dts: "dts/auto-imports.d.ts",
-            imports: ["vue", "@vueuse/core"],
+            imports: ["vue", "@vueuse/core", "vee-validate"],
             dirs: ["src/api"]
         }),
         Components({

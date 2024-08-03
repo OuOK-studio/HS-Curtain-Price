@@ -2,171 +2,37 @@ export const data = {
     "success": true,
     "data": {
         "clothPrices": {
-            "透光": [
-                {
-                    "cloth_type": "透光",
-                    "cloth": "A38A1",
-                    "price": 3740
-                },
-                {
-                    "cloth_type": "透光",
-                    "cloth": "A38A2",
-                    "price": 3740
-                },
-                {
-                    "cloth_type": "透光",
-                    "cloth": "A38A3",
-                    "price": 3740
-                },
-                {
-                    "cloth_type": "透光",
-                    "cloth": "B45A1",
-                    "price": 3740
-                },
-                {
-                    "cloth_type": "透光",
-                    "cloth": "B45A4",
-                    "price": 3740
-                },
-                {
-                    "cloth_type": "透光",
-                    "cloth": "B45A5",
-                    "price": 3740
-                },
-                {
-                    "cloth_type": "透光",
-                    "cloth": "B45A6",
-                    "price": 3740
-                }
-            ],
-            "遮光": [
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A38B1",
-                    "price": 5080
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A38B3",
-                    "price": 5080
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "B45B1",
-                    "price": 5080
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "B45B4",
-                    "price": 5080
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "B45B5",
-                    "price": 5080
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "B45B6",
-                    "price": 5080
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A38E1",
-                    "price": 6350
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A38F1",
-                    "price": 6350
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A38G1",
-                    "price": 6350
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A45G1",
-                    "price": 6350
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A45H1",
-                    "price": 6350
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A45L",
-                    "price": 7620
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A45K1",
-                    "price": 10668
-                },
-                {
-                    "cloth_type": "遮光",
-                    "cloth": "A45M",
-                    "price": 12192
-                }
-            ],
-            "窗紗": [
-                {
-                    "cloth_type": "窗紗",
-                    "cloth": "A38C1",
-                    "price": 5800
-                },
-                {
-                    "cloth_type": "窗紗",
-                    "cloth": "A38D1",
-                    "price": 5800
-                }
-            ]
+            "透光": { "7760": ["A38A1", "A38A2", "A38A3", "B45A1", "B45A4", "B45A5", "B45A6"] },
+            "遮光": {
+                "10810": ["A38B1", "A38B3", "B45B1", "B45B4", "B45B5", "B45B6"],
+                "16215": ["A45L"],
+                "22701": ["A45K1"],
+                "25944": ["A45M"],
+                "13512.5": ["A38E1", "A38F1", "A38G1", "A45G1", "A45H1"]
+            },
+            "窗紗": { "12340": ["A38C1", "A38D1"] }
         },
-        "railPrices": [
-            {
-                "method": "上下開",
-                "rail_type": "一般拉繩",
-                "price": 2700
-            },
-            {
-                "method": "日夜簾",
-                "rail_type": "一般拉繩",
-                "price": 2000
-            },
-            {
-                "method": "標準",
-                "rail_type": "循環拉繩",
-                "price": 2100
-            },
-            {
-                "method": "上下開",
-                "rail_type": "循環拉繩",
-                "price": 4500
-            },
-            {
-                "method": "日夜簾",
-                "rail_type": "循環拉繩",
-                "price": 3750
-            },
-            {
-                "method": "標準",
-                "rail_type": "手推",
-                "price": 2800
-            },
-            {
-                "method": "上下開",
-                "rail_type": "手推",
-                "price": 6350
-            },
-            {
-                "method": "日夜簾",
-                "rail_type": "手推",
-                "price": 5570
-            }
-        ],
-        "width": 60,
-        "height": 150
+        "railPrices": [{ "method": "上下開", "rail_type": "一般拉繩", "price": 2700 }, {
+            "method": "日夜簾",
+            "rail_type": "一般拉繩",
+            "price": 2000
+        }, { "method": "標準", "rail_type": "循環拉繩", "width": [30, 300], "height": [30, 300] }, {
+            "method": "上下開",
+            "rail_type": "循環拉繩",
+            "width": [60, 300],
+            "height": [60, 300]
+        }, { "method": "日夜簾", "rail_type": "循環拉繩", "width": [60, 300], "height": [60, 300] }, {
+            "method": "標準",
+            "rail_type": "手推",
+            "width": [30, 240],
+            "height": [20, 210]
+        }, { "method": "上下開", "rail_type": "手推", "width": [55, 240], "height": [60, 210] }, {
+            "method": "日夜簾",
+            "rail_type": "手推",
+            "width": [55, 240],
+            "height": [60, 210]
+        }, { "method": "標準", "rail_type": "電動", "width": [75, 300], "height": [20, 300] }],
+        "width": 90,
+        "height": 330
     }
 };

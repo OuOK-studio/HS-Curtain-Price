@@ -4,6 +4,7 @@ import PrimeVue from 'primevue/config';
 import { createApp } from 'vue';
 import App from './App.vue';
 import "./assets/index.scss";
+import "primeicons/primeicons.css";
 import ToastService from 'primevue/toastservice';
 
 createApp(App)
