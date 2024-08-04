@@ -7,7 +7,7 @@ import { groupBy, set, sumBy } from "lodash-es";
 import { useSearchCriteriaStore } from "./useSearchCriteriaStore.ts";
 
 
-const store = useSearchCriteriaStore()
+const store = useSearchCriteriaStore();
 const { criteria } = storeToRefs(store);
 
 const dimesion = computed(() => ({ width: criteria.value.width, height: criteria.value.height }));
@@ -170,6 +170,10 @@ function clothListToLabel(cloths: string[]) {
   td {
     padding: 8px 16px;
     border: 1px solid #c4c4c4;
+  }
+
+  tr, td, th {
+    background-color: white;
   }
 
 }
