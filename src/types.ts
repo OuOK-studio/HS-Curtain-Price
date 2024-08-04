@@ -3,7 +3,7 @@ export interface SearchPriceParams {
     height: number
 }
 
-export interface SearchParams {
+export interface Criteria {
     width: number
     height: number
     railType: string
