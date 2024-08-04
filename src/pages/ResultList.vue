@@ -174,6 +174,7 @@ function clothListToLabel(cloths: string[]) {
 
   tr, td, th {
     background-color: white;
+    color: black;
   }
 
 }
