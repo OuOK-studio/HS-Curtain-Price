@@ -27,7 +27,8 @@ jobs:
           node-version: 20
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm build:github
+      - run: echo ${{ github.event.repository.name }}
+      - run: pnpm run build --base /${{ github.event.repository.name }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: "dist/"
