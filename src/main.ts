@@ -27,5 +27,5 @@ createApp(App)
     .use(router)
     .use(pinia)
     .use(ToastService)
-    .use(PrimeVue, { theme: { preset: Aura } })
+    .use(PrimeVue, { theme: { preset: Aura, options: { darkModeSelector: '' } } })
     .mount('#app');

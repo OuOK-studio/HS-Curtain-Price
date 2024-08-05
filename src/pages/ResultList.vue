@@ -171,11 +171,5 @@ function clothListToLabel(cloths: string[]) {
     padding: 8px 16px;
     border: 1px solid #c4c4c4;
   }
-
-  tr, td, th {
-    background-color: white;
-    color: black;
-  }
-
 }
 </style>
