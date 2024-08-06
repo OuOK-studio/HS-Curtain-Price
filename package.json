@@ -21,6 +21,7 @@
     "primeicons": "^7.0.0",
     "primevue": "^4.0.3",
     "tailwindcss-primeui": "^0.3.4",
+    "uniqolor": "^1.1.1",
     "vee-validate": "^4.13.2",
     "vue": "^3.4.31",
     "vue-router": "^4.4.2",

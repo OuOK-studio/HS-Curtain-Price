@@ -5,7 +5,7 @@ import { TransitionFade } from "@morev/vue-transitions"
 
 <template>
   <RouterView v-slot="{Component}">
-    <TransitionFade  group>
+    <TransitionFade>
       <KeepAlive>
         <Component :is="Component" class="h-full"/>
       </KeepAlive>

@@ -3,8 +3,9 @@
 import { Limitation } from "../types.ts";
 import { useToast } from "primevue/usetoast";
 import { DataViewProps } from "primevue/dataview";
-import { groupBy, set, sumBy } from "lodash-es";
+import { groupBy, mapValues, set, sumBy } from "lodash-es";
 import { useSearchCriteriaStore } from "./useSearchCriteriaStore.ts";
+import uniqolor from "uniqolor";
 
 
 const store = useSearchCriteriaStore();
@@ -16,6 +17,10 @@ const railInfo = computed(() =>
     railPrices.value.find(it => it.rail_type === criteria.value?.railType && it.method === criteria.value?.curtain.curtainType)
     ?? ({ rail_type: criteria.value?.railType, method: criteria.value?.curtain.curtainType, price: 0 })
 );
+const colors = computed(() => mapValues(clothGroup.value, (_, key) => {
+  const color = uniqolor(key, { lightness: [98] });
+  return { "background-color": color.color, "color": color.isLight ? "black" : "white" }
+}));
 const { clothGroup, railPrices, standardDimension, isFetching } = usePrice(dimesion);
 const toast = useToast();
 const datatableConfig: DataViewProps = {
@@ -135,12 +140,14 @@ function clothListToLabel(cloths: string[]) {
       <table v-if="'price' in railInfo" class="cloth-price-table relative">
         <tbody>
         <template v-for="(priceGroup, clothType) in clothGroup">
-          <tr>
-            <td colspan="2" class=" bg-white text-lg font-bold col-span-2 sticky top-0">{{ clothType }}</td>
+          <tr :style="colors[clothType]" class="sticky top-0">
+            <td colspan="2" class="text-lg font-bold">{{ clothType }}
+            </td>
           </tr>
           <tr v-for="(cloths, price) in priceGroup"
-              class="hover:bg-primary-400 cursor-pointer"
-              :class="{'bg-primary-200' : selectedClothes[clothType] === price}"
+              :style="colors[clothType]"
+              class="cloth-item"
+              :class="{'cloth-item-selected' : selectedClothes[clothType] === price}"
               @click="onRowClick(clothType, price)"
           >
             <td class="font-bold">{{ clothListToLabel(cloths) }}</td>
@@ -152,8 +159,8 @@ function clothListToLabel(cloths: string[]) {
       <div v-else class="text-red-600 h-full text-2xl flex items-center justify-center font-bold">
         <div>
           <div>此軌道型式無法提供目前尺寸</div>
-          <div v-if="isOutOfRange(railInfo.width, standardDimension.width)">寬度：{{ railInfo.width[0] }}~{{ railInfo.width[1] }}</div>
-          <div v-if="isOutOfRange(railInfo.height, standardDimension.height)">高度：{{ railInfo.height[0] }}~{{ railInfo.height[1] }}</div>
+          <div v-if="isOutOfRange(railInfo.width, criteria.width)">寬度：{{ railInfo.width[0] }}~{{ railInfo.width[1] }}</div>
+          <div v-if="isOutOfRange(railInfo.height, criteria.height)">高度：{{ railInfo.height[0] }}~{{ railInfo.height[1] }}</div>
         </div>
       </div>
     </template>
@@ -171,5 +178,17 @@ function clothListToLabel(cloths: string[]) {
     padding: 8px 16px;
     border: 1px solid #c4c4c4;
   }
+}
+
+.cloth-item {
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  @apply cursor-pointer;
+}
+
+.cloth-item-selected {
+  filter: brightness(.9);
 }
 </style>

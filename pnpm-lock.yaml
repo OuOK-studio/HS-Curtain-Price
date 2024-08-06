@@ -41,6 +41,9 @@ importers:
       tailwindcss-primeui:
         specifier: ^0.3.4
         version: 0.3.4(tailwindcss@3.4.7)
+      uniqolor:
+        specifier: ^1.1.1
+        version: 1.1.1
       vee-validate:
         specifier: ^4.13.2
         version: 4.13.2(vue@3.4.35(typescript@5.5.4))
@@ -1401,6 +1404,9 @@ packages:
 
   unimport@3.9.1:
     resolution: {integrity: sha512-4gtacoNH6YPx2Aa5Xfyrf8pU2RdXjWUACb/eF7bH1AcZtqs+6ijbNB0M3BPENbtVjnCcg8tw9UJ1jQGbCzKA6g==}
+
+  uniqolor@1.1.1:
+    resolution: {integrity: sha512-HUwezlXCwm5bzsEXW7AP7ybezH13uWENRgYT+3dOdhJPvpYucSqvIGckMiLn+Uy2j0NVf3fPp43uZ4aun3t4Ww==}
 
   unplugin-auto-import@0.18.2:
     resolution: {integrity: sha512-Dwb3rAic75harVBrVjwiq6H24PT+nBq2dpxV5BH8NNI6sDFaTytvP+iyo4xy7prQbR3r5K6nMs4f5Wp9PE4g8A==}
@@ -2858,6 +2864,8 @@ snapshots:
       unplugin: 1.12.0
     transitivePeerDependencies:
       - rollup
+
+  uniqolor@1.1.1: {}
 
   unplugin-auto-import@0.18.2(@nuxt/kit@3.12.4(rollup@4.19.2))(@vueuse/core@10.11.0(vue@3.4.35(typescript@5.5.4)))(rollup@4.19.2):
     dependencies:

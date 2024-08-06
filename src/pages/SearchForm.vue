@@ -86,7 +86,7 @@ async function onSubmit() {
         <InputGroupAddon>寬度</InputGroupAddon>
         <template v-if="metadata">
           <InputGroupAddon v-if="greaterThanSmall">{{ metadata.width[0] }} ≤</InputGroupAddon>
-          <InputNumber :invalid="errors.width === undefined" v-model="width" :min="metadata.width[0]" :max="metadata.width[1]"/>
+          <InputNumber :invalid="errors.width !== undefined" v-model="width" :min="metadata.width[0]" :max="metadata.width[1]"/>
           <InputGroupAddon v-if="greaterThanSmall">≤ {{ metadata.width[1] }}</InputGroupAddon>
         </template>
         <template v-else>
@@ -98,7 +98,7 @@ async function onSubmit() {
         <InputGroupAddon>高度</InputGroupAddon>
         <template v-if="metadata">
           <InputGroupAddon v-if="greaterThanSmall">{{ metadata.height[0] }} ≤</InputGroupAddon>
-          <InputNumber :invalid="errors.height === undefined" v-model="height" :min="metadata.height[0]" :max="metadata.height[1]"/>
+          <InputNumber :invalid="errors.height !== undefined" v-model="height" :min="metadata.height[0]" :max="metadata.height[1]"/>
           <InputGroupAddon v-if="greaterThanSmall">≤ {{ metadata.height[1] }}</InputGroupAddon>
         </template>
         <template v-else>
