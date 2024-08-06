@@ -21,7 +21,7 @@ const colors = computed(() => mapValues(clothGroup.value, (_, key) => {
   const color = uniqolor(key, { lightness: [98] });
   return { "background-color": color.color, "color": color.isLight ? "black" : "white" }
 }));
-const { clothGroup, railPrices, standardDimension, isFetching } = usePrice(dimesion);
+const { clothGroup, railPrices, isFetching } = usePrice(dimesion);
 const toast = useToast();
 const datatableConfig: DataViewProps = {
   dataKey: "rail_type",
