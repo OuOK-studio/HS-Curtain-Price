@@ -18,7 +18,7 @@ const railInfo = computed(() =>
     ?? ({ rail_type: criteria.value?.railType, method: criteria.value?.curtain.curtainType, price: 0 })
 );
 const colors = computed(() => mapValues(clothGroup.value, (_, key) => {
-  const color = uniqolor(key, { lightness: [98] });
+  const color = uniqolor(key, { lightness: [92] });
   return { "background-color": color.color, "color": color.isLight ? "black" : "white" }
 }));
 const { clothGroup, railPrices, isFetching } = usePrice(dimesion);
