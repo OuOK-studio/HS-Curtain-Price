@@ -116,7 +116,7 @@ function clothListToLabel(cloths: string[]) {
       <span v-if="'price' in railInfo && selectedCount === criteria?.curtain.clothCount">
         軌道價格 {{ railInfo.price }} + {{
           Object.values(selectedClothes).map((it, index) => `布料 ${index + 1} ${it}`).join(" + ")
-        }} = {{ clothTotalPrice + railInfo.price }} 元
+        }} = {{ (clothTotalPrice + railInfo.price).toFixed(0) }} 元
       </span>
       <span v-else>請點擊選擇 {{ criteria?.curtain.clothCount }} 種布料以計算價格</span>
     </template>
