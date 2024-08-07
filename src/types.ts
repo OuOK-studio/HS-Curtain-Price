@@ -32,6 +32,5 @@ export interface PriceData {
 export interface Metadata {
     railTypes: string[],
     curtainTypes: Array<{ curtainType: string, clothCount: number }>
-    width: Limitation,
-    height: Limitation,
+    limitations: Array<{ railType: string, curtainType: string, width: Limitation, height: Limitation }>
 }

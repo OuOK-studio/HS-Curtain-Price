@@ -10,7 +10,7 @@ const router = useRouter();
 const { metadata } = useMetadata();
 const store = useSearchCriteriaStore();
 const { criteria } = storeToRefs(store);
-const { defineField, validate, meta, errors } = useForm({
+const { defineField, validate, meta, errors, values } = useForm({
   validationSchema: toTypedSchema(z.object({
     railType: z.string(),
     curtain: z.object({
@@ -21,6 +21,11 @@ const { defineField, validate, meta, errors } = useForm({
     height: z.number()
   })),
   initialValues: criteria.value
+});
+
+const currentLimitation = computed(() => {
+  if (!values.railType || !values.curtain || !values.curtain.curtainType) return undefined;
+  return metadata.value?.limitations[values.railType][values.curtain.curtainType]
 });
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
@@ -85,9 +90,12 @@ async function onSubmit() {
       <InputGroup>
         <InputGroupAddon>寬度</InputGroupAddon>
         <template v-if="metadata">
-          <InputGroupAddon v-if="greaterThanSmall">{{ metadata.width[0] }} ≤</InputGroupAddon>
-          <InputNumber :invalid="errors.width !== undefined" v-model="width" :min="metadata.width[0]" :max="metadata.width[1]"/>
-          <InputGroupAddon v-if="greaterThanSmall">≤ {{ metadata.width[1] }}</InputGroupAddon>
+          <template v-if="currentLimitation">
+            <InputGroupAddon v-if="greaterThanSmall">{{ currentLimitation?.width[0] }} ≤</InputGroupAddon>
+            <InputNumber :invalid="errors.width !== undefined" v-model="width" :min="currentLimitation?.width[0]" :max="currentLimitation?.width[1]"/>
+            <InputGroupAddon v-if="greaterThanSmall">≤ {{ currentLimitation?.width[1] }}</InputGroupAddon>
+          </template>
+          <InputGroupAddon v-else class="flex-1">請先選擇軌道與型式</InputGroupAddon>
         </template>
         <template v-else>
           <Skeleton class="flex-1" height="100%"/>
@@ -97,9 +105,12 @@ async function onSubmit() {
       <InputGroup>
         <InputGroupAddon>高度</InputGroupAddon>
         <template v-if="metadata">
-          <InputGroupAddon v-if="greaterThanSmall">{{ metadata.height[0] }} ≤</InputGroupAddon>
-          <InputNumber :invalid="errors.height !== undefined" v-model="height" :min="metadata.height[0]" :max="metadata.height[1]"/>
-          <InputGroupAddon v-if="greaterThanSmall">≤ {{ metadata.height[1] }}</InputGroupAddon>
+          <template v-if="currentLimitation">
+            <InputGroupAddon v-if="greaterThanSmall">{{ currentLimitation?.height[0] }} ≤</InputGroupAddon>
+            <InputNumber :invalid="errors.height !== undefined" v-model="height" :min="currentLimitation?.height[0]" :max="currentLimitation?.height[1]"/>
+            <InputGroupAddon v-if="greaterThanSmall">≤ {{ currentLimitation?.height[1] }}</InputGroupAddon>
+          </template>
+          <InputGroupAddon v-else class="flex-1">請先選擇軌道與型式</InputGroupAddon>
         </template>
         <template v-else>
           <Skeleton class="flex-1" height="100%"/>
