@@ -93,7 +93,7 @@ function clothListToLabel(cloths: string[]) {
           <tbody>
           <template v-for="_ in 3">
             <tr>
-              <td colspan="2" class="bg-white text-lg font-bold col-span-2 sticky z-10 top-0">
+              <td class="bg-white text-lg font-bold sticky z-10 top-0">
                 <Skeleton width="8rem" height="1.5rem"/>
               </td>
             </tr>
@@ -105,9 +105,6 @@ function clothListToLabel(cloths: string[]) {
                     <span v-if="__ !== Math.max(3 - _, 1) * 2">、</span>
                   </template>
                 </div>
-              </td>
-              <td>
-                <Skeleton width="3rem" height="1rem"/>
               </td>
             </tr>
           </template>
@@ -121,7 +118,7 @@ function clothListToLabel(cloths: string[]) {
           Object.values(selectedClothes).map((it, index) => `布料 ${index + 1} ${it}`).join(" + ")
         }} = {{ clothTotalPrice + railInfo.price }} 元
       </span>
-      <span v-else>選擇 {{ criteria?.curtain.clothCount }} 種布料以計算價格</span>
+      <span v-else>請點擊選擇 {{ criteria?.curtain.clothCount }} 種布料以計算價格</span>
     </template>
     <template #header>
       <div class="flex text-white items-center font-bold justify-between">
@@ -141,7 +138,7 @@ function clothListToLabel(cloths: string[]) {
         <tbody>
         <template v-for="(priceGroup, clothType) in clothGroup">
           <tr :style="colors[clothType]" class="sticky top-0">
-            <td colspan="2" class="text-lg font-bold">{{ clothType }}
+            <td class="text-lg font-bold">{{ clothType }}
             </td>
           </tr>
           <tr v-for="(cloths, price) in priceGroup"
@@ -151,7 +148,6 @@ function clothListToLabel(cloths: string[]) {
               @click="onRowClick(clothType, price)"
           >
             <td class="font-bold">{{ clothListToLabel(cloths) }}</td>
-            <td>{{ price }}</td>
           </tr>
         </template>
         </tbody>
