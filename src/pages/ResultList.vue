@@ -3,9 +3,8 @@
 import { Limitation } from "../types.ts";
 import { useToast } from "primevue/usetoast";
 import { DataViewProps } from "primevue/dataview";
-import { groupBy, mapValues, set, sumBy } from "lodash-es";
+import { groupBy, set, sumBy } from "lodash-es";
 import { useSearchCriteriaStore } from "./useSearchCriteriaStore.ts";
-import uniqolor from "uniqolor";
 
 
 const store = useSearchCriteriaStore();
@@ -17,10 +16,9 @@ const railInfo = computed(() =>
     railPrices.value.find(it => it.rail_type === criteria.value?.railType && it.method === criteria.value?.curtain.curtainType)
     ?? ({ rail_type: criteria.value?.railType, method: criteria.value?.curtain.curtainType, price: 0 })
 );
-const colors = computed(() => mapValues(clothGroup.value, (_, key) => {
-  const color = uniqolor(key, { lightness: [92] });
-  return { "background-color": color.color, "color": color.isLight ? "black" : "white" }
-}));
+
+
+const colors = ["rgb(242 251 251)", "rgb(225, 224, 245)", "rgb(255 233 255)"].map(it => ({ "background-color": it }));
 const { clothGroup, railPrices, isFetching } = usePrice(dimesion);
 const toast = useToast();
 const datatableConfig: DataViewProps = {
@@ -136,13 +134,13 @@ function clothListToLabel(cloths: string[]) {
     <template #grid>
       <table v-if="'price' in railInfo" class="cloth-price-table relative">
         <tbody>
-        <template v-for="(priceGroup, clothType) in clothGroup">
-          <tr :style="colors[clothType]" class="sticky top-0">
+        <template v-for="(priceGroup, clothType,index) in clothGroup">
+          <tr :style="colors[index]" class="sticky top-0">
             <td class="text-lg font-bold">{{ clothType }}
             </td>
           </tr>
           <tr v-for="(cloths, price) in priceGroup"
-              :style="colors[clothType]"
+              :style="colors[index]"
               class="cloth-item"
               :class="{'cloth-item-selected' : selectedClothes[clothType] === price}"
               @click="onRowClick(clothType, price)"
