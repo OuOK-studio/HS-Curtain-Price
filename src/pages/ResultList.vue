@@ -18,7 +18,7 @@ const railInfo = computed(() =>
 );
 
 
-const colors = ["rgb(242 251 251)", "rgb(225, 224, 245)", "rgb(255 233 255)"].map(it => ({ "background-color": it }));
+const colors = ["rgb(235,241,241)", "rgb(225, 224, 245)", "rgb(232,219,232)"].map(it => ({ "background-color": it }));
 const { clothGroup, railPrices, isFetching } = usePrice(dimesion);
 const toast = useToast();
 const datatableConfig: DataViewProps = {
