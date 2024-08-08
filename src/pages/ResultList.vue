@@ -10,6 +10,10 @@ import { useSearchCriteriaStore } from "./useSearchCriteriaStore.ts";
 const store = useSearchCriteriaStore();
 const { criteria } = storeToRefs(store);
 
+watch(criteria, () => {
+  selectedClothes.value = {}
+});
+
 const dimesion = computed(() => ({ width: criteria.value.width, height: criteria.value.height }));
 
 const railInfo = computed(() =>
